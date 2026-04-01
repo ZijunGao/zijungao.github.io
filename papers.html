@@ -52,26 +52,29 @@
       padding: 16px 0;
       gap: 16px;
     }
-
+    
     .brand {
       font-weight: 700;
       letter-spacing: -0.02em;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
+      color: white;
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
+      color: white;
+      font-size: 1rem;
     }
 
     .nav-links a:hover,
-    .link-pill:hover,
+    .button:hover,
+    .pill:hover,
     .paper-link:hover {
       opacity: 0.82;
     }
+
 
     .hero {
       padding: 56px 0 24px;
@@ -222,15 +225,16 @@
   </style>
 </head>
 <body>
-  <header class="nav">
+    <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="index.html">Zijun (Zizi) Gao</a>
+      <a class="brand" href="#top">Zijun (Zizi) Gao</a>
       <nav class="nav-links">
-        <a href="index.html#about">About</a>
-        <a href="index.html#research">Research</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
         <a href="papers.html">Papers</a>
-        <a href="index.html#teaching">Teaching</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="presentation.html">Talks</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
