@@ -392,10 +392,20 @@
 
         <aside class="card hero-side">
           <div class="portrait">
-            <div>
-              <strong>Photo placeholder</strong><br />
-              Replace this box with your portrait image or academic headshot.
-            </div>
+            <img id="main-photo" src="assets/images/photo1.jpg" alt="Photo" style="width:280px; border-radius:20px;">
+            <script>
+              const photos = [
+                "assets/img/outdoor.png",
+                "assets/img/Zijun's headshot himo crop.png",
+                "assets/img/IMG_4455.jpeg"
+              ];
+          
+              let i = 0;
+              setInterval(() => {
+                i = (i + 1) % photos.length;
+                document.getElementById("main-photo").src = photos[i];
+              }, 2500);
+            </script>
           </div>
           <div class="mini-grid">
             <div class="mini-box">
