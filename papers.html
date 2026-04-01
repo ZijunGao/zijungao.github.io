@@ -4,81 +4,228 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Papers | Zijun Gao</title>
+  <meta name="description" content="Publications and preprints by Zijun Gao." />
   <style>
+    :root {
+      --bg: #faf9f7;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #9d7fa0;
+      --accent-soft: #f3d6e6;
+      --accent-soft-2: #ecd7e8;
+      --max: 980px;
+      --shadow: 0 12px 32px rgba(17, 24, 39, 0.06);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background: #faf9f7;
-      color: #1f2937;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #ede9fe, #fef3c7 60%, #ffffff);
       line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
     .nav {
       position: sticky;
       top: 0;
-      background: rgba(250, 249, 247, 0.92);
-      border-bottom: 1px solid #e5e7eb;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(135deg, #ede9fe, #fef3c7 60%, #ffffff);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.75);
     }
 
     .nav-inner {
-      width: min(1080px, calc(100% - 32px));
-      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
-      color: #6b7280;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .container {
-      width: min(900px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0 80px;
+    .nav-links a:hover,
+    .link-pill:hover,
+    .paper-link:hover {
+      opacity: 0.82;
+    }
+
+    .hero {
+      padding: 56px 0 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #ede9fe, #fef3c7 60%, #ffffff);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.65);
+      color: #6f6292;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
     }
 
-    h2 {
-      margin-top: 40px;
-      font-size: 1.4rem;
+    .hero-card p {
+      color: #374151;
+      max-width: 64ch;
+      margin: 14px 0 0;
+      font-size: 1.02rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(111, 98, 146, 0.15);
+      font-size: 0.94rem;
+      color: #4b5563;
+    }
+
+    section {
+      padding: 12px 0 10px;
+    }
+
+    .section-header {
+      margin: 0 0 18px;
+    }
+
+    .section-header h2 {
+      margin: 0 0 6px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
     }
 
     .paper-list {
-      padding-left: 20px;
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
-    .paper-list li {
-      margin-bottom: 14px;
+    .paper-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 22px 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
     }
 
-    .cv-link {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 10px 16px;
+    .paper-title {
+      font-weight: 700;
+      font-size: 1.04rem;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .paper-authors {
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .paper-link,
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: #6f6292;
-      color: white;
+      font-size: 0.9rem;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .status-badge {
+      background: #faf5ff;
+      border-color: #eadcf4;
+      color: #6f6292;
       font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      padding: 28px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero-card,
+      .paper-card { padding: 20px; }
+      .nav-inner { align-items: flex-start; }
+      .nav-links { gap: 12px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
   <header class="nav">
-    <div class="nav-inner">
-      <a href="index.html"><strong>Zijun (Zizi) Gao</strong></a>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">Zijun (Zizi) Gao</a>
       <nav class="nav-links">
         <a href="index.html#about">About</a>
         <a href="index.html#research">Research</a>
@@ -90,17 +237,301 @@
   </header>
 
   <main class="container">
-    <h1>Papers</h1>
-    <p>Publications and preprints. For a full version, see my CV.</p>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Publications and Preprints</div>
+        <h1>Papers</h1>
+        <div class="hero-links">
+          <a class="link-pill" href="assets/CVZijunGao.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+          <a class="link-pill" href="https://scholar.google.com/citations?user=B0K5AIMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="link-pill" href="index.html">Back to homepage</a>
+        </div>
+      </div>
+    </section>
 
-    <a class="cv-link" href="assets/CVZijunGao.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+    <section>
+      <div class="section-header">
+        <h2>2026</h2>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="status-badge">Preprint · March 2026</div>
+          <div class="paper-title">On min-Storey estimators for multiple testing and conformal novelty detection</div>
+          <div class="paper-authors">Zijun Gao and Etienne Roquain</div>
+          <div class="paper-meta">arXiv:2603.17984</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2603.17984" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
 
-    <h2>Publications and Preprints</h2>
-    <ul class="paper-list">
-      <li>Paper title 1, coauthors, venue/year.</li>
-      <li>Paper title 2, coauthors, venue/year.</li>
-      <li>Paper title 3, coauthors, venue/year.</li>
-    </ul>
+        <article class="paper-card">
+          <div class="status-badge">Preprint · March 2026</div>
+          <div class="paper-title">Background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders</div>
+          <div class="paper-authors">Xinwen Huang, Yunpeng Wang, Qingyuan Zhao, and Zijun Gao</div>
+          <div class="paper-meta">DOI: 10.64898/2026.03.08.26347891</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://doi.org/10.64898/2026.03.08.26347891" target="_blank" rel="noopener noreferrer">DOI</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Submitted to Biometrika · January 2026</div>
+          <div class="paper-title">Conformal Novelty Detection with False Discovery Rate Control at the Boundary</div>
+          <div class="paper-authors">Zijun Gao, Etienne Roquain, and Daniel Xiang</div>
+          <div class="paper-meta">arXiv:2601.02610</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2601.02610" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Submitted to ICML · February 2026</div>
+          <div class="paper-title">Inference of Causal Partial Identification Set from Conditional Optimal Transport</div>
+          <div class="paper-authors">Sirui Lin, Zijun Gao, Jose Blanchet, and Peter Glynn</div>
+          <div class="paper-meta">arXiv:2602.20681</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2602.20681" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">AISTATS 2026 · May 2026</div>
+          <div class="paper-title">Optimal Transport for Causal Partial Identification with Covariates</div>
+          <div class="paper-authors">Sirui Lin, Zijun Gao, Jose Blanchet, and Peter Glynn</div>
+          <div class="paper-meta">Conference on Artificial Intelligence and Statistics (AISTATS) · arXiv:2502.01164</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2502.01164" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>2025</h2>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="status-badge">CLeaR 2025 · December 2025</div>
+          <div class="paper-title">Estimation and Inference for Causal Explainability</div>
+          <div class="paper-authors">Weihan Zhang and Zijun Gao</div>
+          <div class="paper-meta">Conference on Causal Learning and Reasoning (CLeaR) · arXiv:2512.20219</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2512.20219" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Biometrics · 2025</div>
+          <div class="paper-title">Estimating Heterogeneous Treatment Effects for General Responses</div>
+          <div class="paper-authors">Zijun Gao and Trevor Hastie</div>
+          <div class="paper-meta">Biometrics 81.4 (2025)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Submitted to ICML · November 2025</div>
+          <div class="paper-title">Reliable Selection of Heterogeneous Treatment Effect Estimators</div>
+          <div class="paper-authors">Jiayi Guo and Zijun Gao</div>
+          <div class="paper-meta">arXiv:2511.18464</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2511.18464" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Submitted to ICML · October 2025</div>
+          <div class="paper-title">MUSE: Multi-Treatment Experiment Design for Winner Selection and Effect Estimation</div>
+          <div class="paper-authors">Jiachen Xu, Qian Jian, and Zijun Gao</div>
+          <div class="paper-meta">arXiv:2510.04489</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2510.04489" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Under revision at JASA · October 2025</div>
+          <div class="paper-title">Counterfactual Explainability and Analysis of Variance</div>
+          <div class="paper-authors">Zijun Gao and Qingyuan Zhao</div>
+          <div class="paper-meta">arXiv:2411.01625</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2411.01625" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Under revision at JRSS-B (major revision) · September 2025</div>
+          <div class="paper-title">Selective Randomization Inference for Adaptive Experiments</div>
+          <div class="paper-authors">Tobias Fiedling, Qingyuan Zhao, and Zijun Gao</div>
+          <div class="paper-meta">arXiv:2405.07026</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2405.07026" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Under revision at Biometrika · July 2025</div>
+          <div class="paper-title">Adaptive Sample Splitting for Randomization Tests</div>
+          <div class="paper-authors">Yao Zhang and Zijun Gao</div>
+          <div class="paper-meta">arXiv:2504.21572</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2504.21572" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">ICML 2025 · July 2025</div>
+          <div class="paper-title">Tightening Causal Bounds via Covariate-Aware Optimal Transport</div>
+          <div class="paper-authors">Sirui Lin, Zijun Gao, Jose Blanchet, and Peter Glynn</div>
+          <div class="paper-meta">International Conference on Machine Learning (ICML)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">CLeaR 2025 · May 2025</div>
+          <div class="paper-title">Causal ANOVA: Estimation, Inference, Applications</div>
+          <div class="paper-authors">Zijun Gao and Qingyuan Zhao</div>
+          <div class="paper-meta">Conference on Causal Learning and Reasoning (CLeaR)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">AISTATS 2025 · May 2025</div>
+          <div class="paper-title">Trustworthy Assessment of Heterogeneous Treatment Effect Estimator via Analysis of Relative Error</div>
+          <div class="paper-authors">Zijun Gao</div>
+          <div class="paper-meta">International Conference on Artificial Intelligence and Statistics (AISTATS)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">AISTATS 2025 · May 2025</div>
+          <div class="paper-title">Bridging Multiple Worlds: Multi-marginal Optimal Transport for Causal Partial-identification Problem</div>
+          <div class="paper-authors">Zijun Gao, Shu Ge, and Jian Qian</div>
+          <div class="paper-meta">International Conference on Artificial Intelligence and Statistics (AISTATS)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Under review at Statistics in Medicine · April 2025</div>
+          <div class="paper-title">Selective Randomization Inference for Subgroup Effects with Continuous Biomarkers</div>
+          <div class="paper-authors">Zijun Gao</div>
+          <div class="paper-meta">arXiv:2504.19380</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2504.19380" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Biometrika · 2025</div>
+          <div class="paper-title">Adaptive Storey’s Null Proportion Estimator</div>
+          <div class="paper-authors">Zijun Gao</div>
+          <div class="paper-meta">Biometrika 112.1 (2025): asae051</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Submitted to AISTATS · January 2025</div>
+          <div class="paper-title">Evaluation of Generative AI Models with Uncertainty Quantification</div>
+          <div class="paper-authors">Zijun Gao, Yan Sun, and Han Su</div>
+          <div class="paper-meta">arXiv:2501.18897</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2501.18897" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>2024</h2>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="status-badge">EMNLP 2024 · July 2024</div>
+          <div class="paper-title">Images Speak Louder than Words: Understanding and Mitigating Bias in Vision-Language Model from a Causal Mediation Perspective</div>
+          <div class="paper-authors">Zhaotian Weng, Zijun Gao, Jerone Andrews, and Jieyu Zhao</div>
+          <div class="paper-meta">Conference on Empirical Methods in Natural Language Processing (EMNLP)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Under review at Statistical Science (major revision) · April 2025</div>
+          <div class="paper-title">A Constructive Approach to Selective Risk Control</div>
+          <div class="paper-authors">Zijun Gao, Wenjie Hu, and Qingyuan Zhao</div>
+          <div class="paper-meta">Status listed in CV as of March 2026</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Biometrics · 2024</div>
+          <div class="paper-title">PathGPS: Discover Shared Genetic Architecture Using GWAS Summary Data</div>
+          <div class="paper-authors">Zijun Gao, Trevor Hastie, and Qingyuan Zhao</div>
+          <div class="paper-meta">Biometrics 80.3 (2024): ujae060</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>2023</h2>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="status-badge">JAMA Internal Medicine · 2023</div>
+          <div class="paper-title">Defining Usual Oral Temperature Ranges in Outpatients Using an Unsupervised Learning Algorithm</div>
+          <div class="paper-authors">Ley Catherine, Frederik Heath, Trevor Hastie, Zijun Gao, Myroslava Protsiv, and Julie Parsonnet</div>
+          <div class="paper-meta">JAMA Internal Medicine 183.10 (2023): 1128–1135</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Preprint · March 2023</div>
+          <div class="paper-title">Simultaneous Hypothesis Testing Using Internal Negative Controls with an Application to Proteomics</div>
+          <div class="paper-authors">Zijun Gao and Qingyuan Zhao</div>
+          <div class="paper-meta">arXiv:2303.01552</div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://arxiv.org/abs/2303.01552" target="_blank" rel="noopener noreferrer">arXiv</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>2022 and earlier</h2>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="status-badge">JMLR · 2022</div>
+          <div class="paper-title">LinCDE: Conditional Density Estimation via Lindsey’s Method</div>
+          <div class="paper-authors">Zijun Gao and Trevor Hastie</div>
+          <div class="paper-meta">Journal of Machine Learning Research 23.52 (2022): 1–55</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Statistics in Medicine · 2021</div>
+          <div class="paper-title">Assessment of Heterogeneous Treatment Effect Estimation Accuracy via Matching</div>
+          <div class="paper-authors">Zijun Gao, Trevor Hastie, and Robert Tibshirani</div>
+          <div class="paper-meta">Statistics in Medicine 40.17 (2021): 3990–4013</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">NeurIPS Spotlight · 2020</div>
+          <div class="paper-title">Minimax Optimal Nonparametric Estimation of Heterogeneous Treatment Effects</div>
+          <div class="paper-authors">Zijun Gao and Yanjun Han</div>
+          <div class="paper-meta">Conference on Neural Information Processing Systems (NeurIPS) · Spotlight (3%)</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">Journal of Clinical Anesthesia · 2020</div>
+          <div class="paper-title">Effect of Clinical Opioid Shortage on Anesthesiologists’ Prescription Habits: a Retrospective Analysis</div>
+          <div class="paper-authors">Richard K. Kim, Zijun Gao, Trevor Hastie, and Detlef Obal</div>
+          <div class="paper-meta">Journal of Clinical Anesthesia · November 2020</div>
+        </article>
+
+        <article class="paper-card">
+          <div class="status-badge">NeurIPS Oral · 2019</div>
+          <div class="paper-title">Batched Multi-armed Bandits Problem</div>
+          <div class="paper-authors">Zijun Gao, Yanjun Han, Zhimei Ren, and Zhengqing Zhou (equal contribution)</div>
+          <div class="paper-meta">Conference on Neural Information Processing Systems (NeurIPS) · Oral (1%)</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer">
+      This page is based on the publication list in the March 2026 CV. Add journal pages, DOI links, and PDF links later if you want a more complete archive.
+    </div>
   </main>
 </body>
 </html>
