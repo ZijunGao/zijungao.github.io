@@ -473,7 +473,20 @@
 
         <aside class="card hero-side">
           <div class="portrait">
-            <img id="main-photo" src="assets/img/outdoor.png" alt="Photo" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
+            <img id="main-photo" src="assets/images/photo1.jpg" alt="Photo" style="width:280px; border-radius:20px;">
+            <script>
+              const photos = [
+                "assets/img/outdoor.png",
+                "assets/img/Zijun's headshot himo crop.png",
+                "assets/img/IMG_4455.jpeg"
+              ];
+          
+              let i = 0;
+              setInterval(() => {
+                i = (i + 1) % photos.length;
+                document.getElementById("main-photo").src = photos[i];
+              }, 2500);
+            </script>
           </div>
         </aside>
       </div>
