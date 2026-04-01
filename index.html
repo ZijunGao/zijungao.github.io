@@ -1,753 +1,575 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>
-
-  Zijun Gao
-
-
-</title>
-<meta name="description" content="Zijun Gao is a Ph.D. candidate in the Statistics Department at Stanford University advised by Professor Trevor Hastie. Prior to attending Stanford, she obtained a Bachelor of Science in Mathematics from Tsinghua University, China.
-">
-
-<!-- Open Graph -->
-
-
-<!-- Bootstrap & MDB -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
-
-<!-- Fonts & Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-
-<!-- Code Syntax Highlighting -->
-<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
-
-<!-- Styles -->
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
-
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/">
-
-<!-- JQuery -->
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-
-<!-- Theming-->
-
-<script src="/assets/js/theme.js"></script>
-<script src="/assets/js/dark_mode.js"></script>
-
-
-
-
-
-
-    
-<!-- MathJax -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      tags: 'ams'
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zijun Gao</title>
+  <meta name="description" content="Zijun Gao — Assistant Professor at USC Marshall working on causal inference, statistical machine learning, adaptive experimentation, and multiple testing." />
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #7c3aed;
+      --accent-soft: #f3e8ff;
+      --max: 1080px;
+      --shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+      --radius: 24px;
     }
-  };
-</script>
-<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #fcfbf8 0%, #f7f5f2 100%);
+      line-height: 1.65;
+    }
 
-  </head>
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-  <body class="fixed-top-nav ">
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-    <!-- Header -->
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(250, 249, 247, 0.88);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.75);
+    }
 
-    <header>
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
 
-    <!-- Nav Bar -->
-    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
-    <div class="container">
-      
-      <!-- Navbar Toggle -->
-      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <!-- About -->
-          <li class="nav-item active">
-            <a class="nav-link" href="/">
-              about
-              
-                <span class="sr-only">(current)</span>
-              
-            </a>
-          </li>
-          
-          <!-- Other pages -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/projects/">
-                packages
-                
-              </a>
-          </li>
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/publications/">
-                publications
-                
-              </a>
-          </li>
-          
-          
-          
-            <div class = "toggle-container">
-              <a id = "light-toggle">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-              </a>
-            </div>
-          
-        </ul>
-      </div>
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .button:hover,
+    .pill:hover,
+    .paper-link:hover {
+      opacity: 0.82;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin-top: 18px;
+      font-size: 1.28rem;
+      color: #374151;
+    }
+
+    .hero-main p {
+      font-size: 1.06rem;
+      color: #374151;
+      max-width: 60ch;
+    }
+
+    .button-row,
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: #111827;
+      color: white;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .portrait {
+      aspect-ratio: 4 / 4.5;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ede9fe, #fef3c7 60%, #ffffff);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.95rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-box {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fcfcfc;
+    }
+
+    .mini-box .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .mini-box .value {
+      font-size: 0.97rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 22px 0 10px;
+    }
+
+    .section-header {
+      margin: 0 0 22px;
+    }
+
+    .section-header h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .panel p:last-child { margin-bottom: 0; }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li,
+    .paper,
+    .news-item,
+    .course {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.04);
+    }
+
+    .research-grid,
+    .papers-grid,
+    .news-grid,
+    .teaching-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .research-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .paper-title,
+    .course-title {
+      font-weight: 700;
+      font-size: 1.06rem;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .paper-link,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: #374151;
+      font-size: 0.92rem;
+      background: #fff;
+    }
+
+    .contact {
+      margin: 24px 0 70px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    code.note {
+      background: #f3f4f6;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2px 7px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side,
+      .panel,
+      .contact {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 40px; }
+      .nav-inner { align-items: flex-start; }
+      .nav-links { gap: 12px; font-size: 0.9rem; }
+      .mini-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Zijun Gao</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#papers">Papers</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </nav>
-
-</header>
-
-
-    <!-- Content -->
-
-    <div class="container mt-5">
-      <div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">
-     Zijun Gao
-    </h1>
-     <p class="desc"></p>
   </header>
 
-  <article>
-    
-    <div class="profile float-left">
-      
-        <img class="img-fluid z-depth-1 rounded" src="/assets/img/headshot.JPG">
-      
-      
-        <div class="address">
-          
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="eyebrow">Assistant Professor · USC Marshall</div>
+          <h1>Zijun Gao</h1>
+          <div class="subtitle">Statistics, causal inference, and machine learning for decision-making</div>
+          <p>
+            I am an Assistant Professor in the Department of Data Sciences and Operations at the USC Marshall School of Business.
+            My research focuses on causal inference, including heterogeneous treatment effects, randomization tests, adaptive clinical trials,
+            and partial identification, as well as statistical inference topics such as selective inference and multiple testing.
+          </p>
+          <p>
+            Before joining USC in 2023, I received my Ph.D. in Statistics from Stanford University and worked as a Research Associate
+            in the Statistical Laboratory at the University of Cambridge.
+          </p>
+          <div class="button-row">
+            <a class="button" href="#papers">Selected papers</a>
+            <a class="button secondary" href="#contact">Contact</a>
+          </div>
+          <div class="pill-row">
+            <a class="pill" href="#">CV</a>
+            <a class="pill" href="#">Google Scholar</a>
+            <a class="pill" href="https://github.com/ZijunGao">GitHub</a>
+            <a class="pill" href="#">Research group</a>
+          </div>
         </div>
-      
-    </div>
-    
 
-    <div class="clearfix">
-      <p>Zijun Gao is a Ph.D. candidate in the <a href="https://statistics.stanford.edu" target="\_blank">Statistics Department at Stanford University</a> advised by Professor <a href="https://web.stanford.edu/~hastie/" target="\_blank">Trevor Hastie</a>. Prior to attending Stanford, she obtained a Bachelor of Science in Mathematics from Tsinghua University, China.</p>
-
-<p>Her major research interest is <code class="language-plaintext highlighter-rouge">causal inference with heterogeneity</code>. Her works focus on developing efficient methodologies of estimating and validating heterogeneous causal effects with applications of large-scale healthcare databases. She also works on real-world data motivated topics such as conditional density estimation and batched bandit problem.</p>
-
-    </div>
-
-    
-      <div class="news">
-  <h2>news</h2>
-  
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-      
-      
-        <tr>
-          <th scope="row">Feb 2, 2022</th>
-          <td>
-            
-              Our JMLR paper “LinCDE: Conditional Density Estimation via Lindsey’s Method” is now online!
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Oct 9, 2021</th>
-          <td>
-            
-              R package <code class="language-plaintext highlighter-rouge">LinCDE</code> is released!
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Sep 30, 2020</th>
-          <td>
-            
-              Zijun Gao receives Ric Weiland Graduate Fellowship!
-
-            
-          </td>
-        </tr>
-      
-      </table>
-    </div>
-  
-</div>
-
-    
-
-    
-      <div class="publications">
-  <h2>selected publications</h2>
-  <ol class="bibliography"><li><div class="row">
-  <div class="col-sm-2 abbr">
-  
-    
-    <abbr class="badge">DINA</abbr>
-    
-  
-  </div>
-
-  <div id="gao2022DINA" class="col-sm-8">
-    
-      <div class="title">Estimating Heterogeneous Treatment Effects for General Responses</div>
-      <div class="author">
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                <em>Gao, Zijun</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  and Hastie, Trevor
-                
-              
-            
-          
-        
+        <aside class="card hero-side">
+          <div class="portrait">
+            <div>
+              <strong>Photo placeholder</strong><br />
+              Replace this box with your portrait image or academic headshot.
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-box">
+              <div class="label">Affiliation</div>
+              <div class="value">USC Marshall School of Business</div>
+            </div>
+            <div class="mini-box">
+              <div class="label">Location</div>
+              <div class="value">Los Angeles, California</div>
+            </div>
+            <div class="mini-box">
+              <div class="label">Focus</div>
+              <div class="value">Causal inference & experimentation</div>
+            </div>
+            <div class="mini-box">
+              <div class="label">Email</div>
+              <div class="value">zijungao@marshall.usc.edu</div>
+            </div>
+          </div>
+        </aside>
       </div>
+    </section>
 
-      <div class="periodical">
-      
-        <em>submitted to Journal of the Royal Statistical Society: Series B</em>
-      
-      
-        2022
-      
+    <section id="about">
+      <div class="section-header">
+        <h2>About</h2>
+        <p>A modern version of your website should foreground your current faculty identity, research agenda, and easy paths to papers, teaching, and contact information.</p>
       </div>
-    
-
-    <div class="links">
-    
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    
-    
-    
-    
-      <a href="http://arxiv.org/abs/2103.04277" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-    <div class="abstract hidden">
-      <p>Heterogeneous treatment effect models allow us to compare treatments at subgroup and individual levels, and are of increasing popularity in applications like personalized medicine, advertising, and education. In this talk, we first survey different causal estimands used in practice, which focus on estimating the difference in conditional means. We then propose DINA — the difference in natural parameters — to quantify heterogeneous treatment effect in exponential families and the Cox model. For binary outcomes and survival times, DINA is both convenient and more practical for modeling the influence of covariates on the treatment effect. Second, we introduce a meta-algorithm for DINA, which allows practitioners to use powerful off-the-shelf machine learning tools for the estimation of nuisance functions, and which is also statistically robust to errors in inaccurate nuisance function estimation. We demonstrate the efficacy of our method combined with various machine learning base-learners on simulated and real datasets.</p>
-    </div>
-    
-
-    <!-- Hidden bibtex block -->
-    
-  </div>
-</div>
-</li>
-<li><div class="row">
-  <div class="col-sm-2 abbr">
-  
-    
-    <abbr class="badge">LinCDE</abbr>
-    
-  
-  </div>
-
-  <div id="gao2022LinCDE" class="col-sm-8">
-    
-      <div class="title">Conditional Density Estimation via Lindsey’s Method</div>
-      <div class="author">
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                <em>Gao, Zijun</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  and Hastie, Trevor
-                
-              
-            
-          
-        
+      <div class="two-col">
+        <div class="card panel">
+          <p>
+            My work develops efficient and reliable statistical methodology for causal inference in modern data settings. I am particularly interested in heterogeneous treatment effects, randomization tests, adaptive clinical trials, and partial identification.
+          </p>
+          <p>
+            I also work on selective inference and multiple testing, with recent projects connecting these ideas to conformal novelty detection, adaptive experimentation, and interpretable causal analysis.
+          </p>
+          <p>
+            Across these directions, I aim to build methods that are mathematically grounded, practically useful, and motivated by real decision problems.
+          </p>
+        </div>
+        <div>
+          <ul class="list">
+            <li><strong>Research areas.</strong> Causal inference, heterogeneous treatment effects, randomization tests, adaptive clinical trials, partial identification, selective inference, and multiple testing.</li>
+            <li><strong>Applications.</strong> Healthcare, experimentation platforms, and other data-driven decision settings.</li>
+            <li><strong>Background.</strong> Ph.D. in Statistics from Stanford University; B.S. in Mathematics from Tsinghua University; Research Associate at the University of Cambridge before joining USC.</li>
+            <li><strong>Teaching.</strong> BUAD 310: Applied Business Statistics (Spring 2024, Spring 2025, Spring 2026).</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-      <div class="periodical">
-      
-        <em>Journal of Machine Learning Research</em>
-      
-      
-        2022
-      
+    <section id="research">
+      <div class="section-header">
+        <h2>Research directions</h2>
+        <p>These cards give visitors a fast overview of your work without making them read long publication abstracts on the homepage.</p>
       </div>
-    
-
-    <div class="links">
-    
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    
-    
-    
-    
-      <a href="http://jmlr.org/papers/v23/21-0840.html" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-    <div class="abstract hidden">
-      <p>Conditional density estimation is a fundamental problem in statistics, with scientific and practical applications in biology, economics, finance and environmental studies, to name a few. In this paper, we propose a conditional density estimator based on gradient boosting and Lindsey’s method (LinCDE). LinCDE admits flexible modeling of the density family and can capture distributional characteristics like modality and shape. In particular, when suitably parametrized, LinCDE will produce smooth and non-negative density estimates. Furthermore, like boosted regression trees, LinCDE does automatic feature selection. We demonstrate LinCDE’s efficacy through extensive simulations and several real data examples.</p>
-    </div>
-    
-
-    <!-- Hidden bibtex block -->
-    
-  </div>
-</div>
-</li>
-<li><div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="gao2021assessment" class="col-sm-8">
-    
-      <div class="title">Assessment of heterogeneous treatment effect estimation accuracy via matching</div>
-      <div class="author">
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                <em>Gao, Zijun</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  Hastie, Trevor,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  and Tibshirani, Robert
-                
-              
-            
-          
-        
+      <div class="research-grid">
+        <article class="paper">
+          <div class="paper-title">Causal inference with heterogeneity</div>
+          <div class="muted">Methods for estimating heterogeneous treatment effects, validating treatment effect estimators, and studying treatment interactions under realistic data settings.</div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Adaptive experimentation</div>
+          <div class="muted">Sequential and adaptive procedures for experimentation, randomization tests, and valid inference after data-dependent design or analysis choices.</div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Multiple testing and selective inference</div>
+          <div class="muted">Powerful procedures with rigorous error control, including recent work on adaptive Storey-type estimators and conformal novelty detection.</div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Optimal transport and partial identification</div>
+          <div class="muted">Using transport-based ideas to define interpretable causal bounds and tighten partial identification sets with covariate information.</div>
+        </article>
       </div>
+    </section>
 
-      <div class="periodical">
-      
-        <em>Statistics in Medicine</em>
-      
-      
-        2021
-      
+    <section id="papers">
+      <div class="section-header">
+        <h2>Selected papers</h2>
+        <p>Keep this section short on the homepage. Put the full list on a separate publications page if you want a more complete archive.</p>
       </div>
-    
-
-    <div class="links">
-    
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    
-    
-    
-    
-      <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sim.9010" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-    <div class="abstract hidden">
-      <p>We study the assessment of the accuracy of heterogeneous treatment effect (HTE) estimation, where the HTE is not directly observable so standard computation of prediction errors is not applicable. To tackle the difficulty, we propose an assessment approach by constructing pseudo-observations of the HTE based on matching. Our contributions are three-fold: first, we introduce a novel matching distance derived from proximity scores in random forests; second, we formulate the matching problem as an average minimum-cost flow problem and provide an efficient algorithm; third, we propose a match-then-split principle for the assessment with cross-validation. We demonstrate the efficacy of the assessment approach on synthetic data and data generated from a real dataset.</p>
-    </div>
-    
-
-    <!-- Hidden bibtex block -->
-    
-  </div>
-</div>
-</li>
-<li><div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="gao2020minimax" class="col-sm-8">
-    
-      <div class="title">Minimax optimal nonparametric estimation of heterogeneous treatment effects</div>
-      <div class="author">
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                <em>Gao, Zijun</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  and Han, Yanjun
-                
-              
-            
-          
-        
+      <div class="papers-grid">
+        <article class="paper">
+          <div class="paper-title">Optimal Transport for Causal Partial Identification with Covariates</div>
+          <div class="muted">AISTATS 2026. Develops optimal transport tools for tightening causal partial identification bounds using covariates.</div>
+          <div class="paper-links">
+            <a class="paper-link" href="#">Paper</a>
+          </div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Estimation and Inference for Causal Explainability</div>
+          <div class="muted">CLeaR 2025. Connects causal interaction structure, explainability, and rigorous inference.</div>
+          <div class="paper-links">
+            <a class="paper-link" href="#">Paper</a>
+          </div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Adaptive Storey's Null Proportion Estimator</div>
+          <div class="muted">Biometrika, 2025. Develops a new adaptive null proportion estimator for multiple testing.</div>
+          <div class="paper-links">
+            <a class="paper-link" href="#">Paper</a>
+          </div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">Estimating Heterogeneous Treatment Effects for General Responses</div>
+          <div class="muted">Biometrics, 2025. Studies estimation of heterogeneous treatment effects beyond standard response settings.</div>
+          <div class="paper-links">
+            <a class="paper-link" href="#">Paper</a>
+          </div>
+        </article>
+        <article class="paper">
+          <div class="paper-title">LinCDE: Conditional Density Estimation via Lindsey's Method</div>
+          <div class="muted">Journal of Machine Learning Research, 2022.</div>
+          <div class="paper-links">
+            <a class="paper-link" href="#">Paper</a>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="periodical">
-      
-        <em>Conference on Neural Information Processing Systems (NeurIPS) (Spotlight)</em>
-      
-      
-        2020
-      
+    <section>
+      <div class="section-header">
+        <h2>News and updates</h2>
+        <p>The current site stops at 2022. A refreshed site should either add recent items or remove this section entirely if you do not want to maintain it regularly.</p>
       </div>
-    
-
-    <div class="links">
-    
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    
-    
-    
-    
-      <a href="https://proceedings.neurips.cc//paper/2020/file/f75b757d3459c3e93e98ddab7b903938-Paper.pdf" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-    <div class="abstract hidden">
-      <p>A central goal of causal inference is to detect and estimate the treatment effects of a given treatment or intervention on an outcome variable of interest, where a member known as the heterogeneous treatment effect (HTE) is of growing popularity in recent practical applications such as the personalized medicine. In this paper, we model the HTE as a smooth nonparametric difference between two less smooth baseline functions, and determine the tight statistical limits of the nonparametric HTE estimation as a function of the covariate geometry. In particular, a two-stage nearest-neighbor-based estimator throwing away observations with poor matching quality is near minimax optimal. We also establish the tight dependence on the density ratio without the usual assumption that the covariate densities are bounded away from zero, where a key step is to employ a novel maximal inequality which could be of independent interest.</p>
-    </div>
-    
-
-    <!-- Hidden bibtex block -->
-    
-  </div>
-</div>
-</li>
-<li><div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="gao2019batched" class="col-sm-8">
-    
-      <div class="title">Batched multi-armed bandits problem</div>
-      <div class="author">
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                <em>Gao, Zijun</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  Han, Yanjun,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  Ren, Zhimei,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-          
-          
-            
-              
-                
-                  and Zhou, Zhengqing
-                
-              
-            
-          
-        
+      <div class="news-grid">
+        <article class="news-item">March 2026: New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection.</article>
+        <article class="news-item">2026: Paper on optimal transport for causal partial identification with covariates appearing at AISTATS.</article>
+        <article class="news-item">2025: Work on causal explainability accepted to CLeaR, along with several recent projects on randomization tests and adaptive experimentation.</article>
       </div>
+    </section>
 
-      <div class="periodical">
-      
-        <em>Conference on Neural Information Processing Systems (NeurIPS) (Oral)</em>
-      
-      
-        2019
-      
+    <section id="teaching">
+      <div class="section-header">
+        <h2>Teaching</h2>
+        <p>Teaching is now part of your professional identity, so it deserves its own section instead of being absent from the homepage.</p>
       </div>
-    
-
-    <div class="links">
-    
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    
-    
-    
-    
-      <a href="https://papers.nips.cc/paper/2019/file/20f07591c6fcb220ffe637cda29bb3f6-Paper.pdf" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-    <div class="abstract hidden">
-      <p>In this paper, we study the multi-armed bandit problem in the batched setting where the employed policy must split data into a small number of batches. While the minimax regret for the two-armed stochastic bandits has been completely characterized in \citeperchet2016batched, the effect of the number of arms on the regret for the multi-armed case is still open. Moreover, the question whether adaptively chosen batch sizes will help to reduce the regret also remains underexplored. In this paper, we propose the BaSE (batched successive elimination) policy to achieve the rate-optimal regrets (within logarithmic factors) for batched multi-armed bandits, with matching lower bounds even if the batch sizes are determined in an adaptive manner.</p>
-    </div>
-    
-
-    <!-- Hidden bibtex block -->
-    
-  </div>
-</div>
-</li></ol>
-</div>
-
-    
-
-    
-    <div class="social">
-      <div class="contact-icons">
-        <a href="mailto:%7A%69%6A%75%6E%67%61%6F@%73%74%61%6E%66%6F%72%64.%65%64%75"><i class="fas fa-envelope"></i></a>
-<a href="https://orcid.org/0000-0003-4863-1656" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
-
-
-
-<a href="https://github.com/zijungao" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-<a href="https://www.linkedin.com/in/zijun-gao-b09a69a5# your LinkedIn user name" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-
-
-
-
-
-
-
-
-
-
-
+      <div class="teaching-grid">
+        <article class="course">
+          <div class="course-title">BUAD 310: Applied Business Statistics</div>
+          <div class="muted">Taught in Spring 2024, Spring 2025, and Spring 2026. Topics include probability, estimation, hypothesis testing, regression, and data-driven decision-making for business students.</div>
+        </article>
+        <article class="course">
+          <div class="course-title">Advising and academic service</div>
+          <div class="muted">Current Ph.D. student: Zhizhen (Andy) Chen, enrolled in Fall 2025. Service includes reviewing for journals such as JASA, Biometrika, Annals of Statistics, JRSS-B, and Management Science.</div>
+        </article>
       </div>
-      <div class="contact-note"></div>
+    </section>
+
+    <section id="contact" class="card contact">
+      <div>
+        <div class="section-header" style="margin-bottom: 8px;">
+          <h2>Contact</h2>
+          <p>Make it easy for visitors to reach you and find your academic profiles.</p>
+        </div>
+        <p>
+          Department of Data Sciences and Operations<br />
+          USC Marshall School of Business<br />
+          BRI 307F, 3670 Trousdale Pkwy, Los Angeles, CA 90089
+        </p>
+      </div>
+      <div>
+        <ul class="list">
+          <li><strong>Email.</strong> zijungao@marshall.usc.edu</li>
+          <li><strong>CV.</strong> Add a direct PDF link to your latest CV</li>
+          <li><strong>Google Scholar.</strong> Add your profile link</li>
+          <li><strong>GitHub.</strong> <a href="https://github.com/ZijunGao">github.com/ZijunGao</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer container">
+      Last updated in 2026. Replace placeholder links marked <code class="note">#</code> with your real URLs before publishing.
     </div>
-    
-  </article>
-
-</div>
-
-    </div>
-
-    <!-- Footer -->
-
-    
-<footer class="fixed-bottom">
-  <div class="container mt-0">
-    &copy; Copyright 2022 Zijun  Gao.
-    
-    
-    
-  </div>
-</footer>
-
-
-
-  </body>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
-
+  </main>
+</body>
 </html>
