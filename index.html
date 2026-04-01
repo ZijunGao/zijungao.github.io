@@ -14,6 +14,7 @@
       --line: #e5e7eb;
       --accent: #7c3aed;
       --accent-soft: #f3e8ff;
+      --yellow-soft: #f9f2d9;
       --max: 1080px;
       --shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
       --radius: 24px;
@@ -96,7 +97,6 @@
 
     .hero-main {
       padding: 44px;
-      background: linear-gradient(135deg, var(--accent-soft) 0%, var(--yellow-soft) 100%);
     }
 
     .eyebrow {
@@ -154,7 +154,6 @@
 
     .button.secondary {
       background: rgba(255,255,255,0.55);
-      border-color: rgba(111, 98, 146, 0.18);
       color: var(--text);
       border-color: var(--line);
     }
@@ -178,6 +177,7 @@
       text-align: center;
       padding: 24px;
       font-size: 0.95rem;
+      overflow: hidden;
     }
 
     .mini-grid {
@@ -248,7 +248,6 @@
 
     .list li,
     .paper,
-    .news-item,
     .course {
       background: var(--paper);
       border: 1px solid var(--line);
@@ -259,7 +258,6 @@
 
     .research-grid,
     .papers-grid,
-    .news-grid,
     .teaching-grid {
       display: grid;
       gap: 16px;
@@ -280,14 +278,7 @@
       color: var(--muted);
     }
 
-    .paper-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .paper-link,
+    .paper-links,
     .pill {
       display: inline-flex;
       align-items: center;
@@ -315,63 +306,104 @@
       font-size: 0.95rem;
     }
 
-    code.note {
-      background: #f3f4f6;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 2px 7px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+    .news-slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 22px;
     }
 
-    .news-slider {
-  overflow: hidden;
-  width: 100%;
-}
+    .news-slider::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(160, 132, 176, 0.35) 0%, rgba(210, 184, 151, 0.45) 100%);
+      z-index: 0;
+    }
 
-.news-track {
-  display: flex;
-  transition: transform 0.75s ease;
-  will-change: transform;
-}
+    .news-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: news-marquee 26s linear infinite;
+      will-change: transform;
+      position: relative;
+      z-index: 1;
+    }
 
-.news-postcard {
-  min-width: 100%;
-  background: linear-gradient(180deg, #fffdf8 0%, #f8f1e8 100%);
-  border: 1.5px solid #e6d7c3;
-  border-radius: 26px;
-  padding: 28px 34px;
-  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
-  position: relative;
-}
+    .news-slider:hover .news-track {
+      animation-play-state: paused;
+    }
 
-.news-postcard::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  width: 56px;
-  height: 36px;
-  border: 1.5px solid #d7c4df;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #efeaf7 0%, #f9f2d9 100%);
-}
+    .news-postcard {
+      position: relative;
+      width: 360px;
+      flex: 0 0 auto;
+      background: linear-gradient(180deg, #fffdf8 0%, #f8f1e8 100%);
+      border: 1.5px solid #e6d7c3;
+      border-radius: 22px;
+      padding: 28px 26px 24px;
+      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
+      transform: rotate(-1deg);
+    }
 
-.news-date {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #8b6f9b;
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
+    .news-postcard:nth-child(2n) {
+      transform: rotate(1deg);
+    }
 
-.news-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #1f2937;
-  max-width: 92%;
-}
+    .news-postcard::before {
+      content: "";
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f3eee6 0%, #ddd1bf 100%);
+      border: 1px solid rgba(120, 108, 96, 0.25);
+      box-shadow: 0 2px 6px rgba(17, 24, 39, 0.12);
+    }
+
+    .news-postcard::after {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(120, 108, 96, 0.55);
+      background: transparent;
+    }
+
+    .news-date {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #8b6f9b;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .news-text {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #1f2937;
+    }
+
+    @keyframes news-marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 10px));
+      }
+    }
 
     @media (max-width: 900px) {
       .hero-grid,
@@ -403,7 +435,7 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top">Zijun (Zizi) Gao</a>
+      <a class="brand" href="#about">Zijun (Zizi) Gao</a>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
@@ -421,12 +453,10 @@
         <div class="card hero-main">
           <div class="eyebrow">Assistant Professor · USC Marshall</div>
           <h1>Zijun (Zizi) Gao</h1>
+          <p>Welcome to Zijun's website :)</p>
           <p>
-            Welcome to Zijun's website :)
-          </p>
-          <p> 
             I am an Assistant Professor in the Department of Data Sciences and Operations at the USC Marshall School of Business.
-            Before joining USC, I earned my B.S. in Mathematics from Tsinghua University, my Ph.D. in Statistics from Stanford University in 2022 advised by Professor Trevor Hastie, 
+            Before joining USC, I earned my B.S. in Mathematics from Tsinghua University, my Ph.D. in Statistics from Stanford University in 2022 advised by Professor Trevor Hastie,
             and worked as a Research Associate in the Statistical Lab at the University of Cambridge from 2022 to 2023.
           </p>
           <p>
@@ -443,20 +473,7 @@
 
         <aside class="card hero-side">
           <div class="portrait">
-            <img id="main-photo" src="assets/images/photo1.jpg" alt="Photo" style="width:280px; border-radius:20px;">
-            <script>
-              const photos = [
-                "assets/img/outdoor.png",
-                "assets/img/Zijun's headshot himo crop.png",
-                "assets/img/IMG_4455.jpeg"
-              ];
-          
-              let i = 0;
-              setInterval(() => {
-                i = (i + 1) % photos.length;
-                document.getElementById("main-photo").src = photos[i];
-              }, 2500);
-            </script>
+            <img id="main-photo" src="assets/img/outdoor.png" alt="Photo" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
           </div>
         </aside>
       </div>
@@ -469,73 +486,72 @@
       <div class="two-col">
         <div class="card panel">
           <p>
-           My research develops trustworthy and efficient statistical methods for causal inference in modern data settings, with a particular focus on <strong>heterogeneous treatment effects</strong>. 
-           When treatment effects vary across individuals, natural questions arise on <strong>adaptive trials</strong>, <strong>benefiting subgroups</strong>, and <strong>personalized treatments</strong>.
-           These tasks further raise <strong>selective inference</strong> and <strong>multiple testing</strong> challenges due to the adaptivity of experiments and the multiplicity of subgroups.
+            My research develops trustworthy and efficient statistical methods for causal inference in modern data settings, with a particular focus on <strong>heterogeneous treatment effects</strong>.
+            When treatment effects vary across individuals, natural questions arise on <strong>adaptive trials</strong>, <strong>benefiting subgroups</strong>, and <strong>personalized treatments</strong>.
+            These tasks further raise <strong>selective inference</strong> and <strong>multiple testing</strong> challenges due to the adaptivity of experiments and the multiplicity of subgroups.
           </p>
           <p>
             I am also genuinely interested in the <strong>interplay between machine learning and causal inference</strong>:
-            modern machine learning methods, such as neural networks and <strong>ML-assisted optimal transport</strong>, can help address causal problems with complex data; 
-            in turn, causal inference can contribute to <strong>model evaluation</strong> (which LLM shall I use?) and to <strong>explainability</strong> of blackbox algorithms (which model components are most influential?).
+            modern machine learning methods, such as neural networks and <strong>ML-assisted optimal transport</strong>, can help address causal problems with complex data;
+            in turn, causal inference can contribute to <strong>model evaluation</strong> and to <strong>explainability</strong> of black-box algorithms.
           </p>
         </div>
         <div>
           <ul class="list">
             <li><strong>Heterogeneous treatment effects</strong>: Estimation and inference for heterogeneous treatment effects, identification of benefiting subgroups.</li>
             <li><strong>Randomization inference</strong>: Randomization tests in adaptive trials with selection, for multiple subgroup hypotheses, with augmentation using model knowledge.</li>
-            <li><strong>Partial identification</strong>: Partial identification using optimal transport handling covariates, complex outcomes, multiple treatment levels.</li>          </ul>
+            <li><strong>Partial identification</strong>: Partial identification using optimal transport handling covariates, complex outcomes, multiple treatment levels.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="news">
-  <div class="section-header">
-    <h2>News and Updates</h2>
-  </div>
-
-  <div class="news-slider" id="news-slider">
-    <div class="news-track" id="news-track">
-      <article class="news-postcard">
-        <div class="news-date">March 2026</div>
-        <div class="news-text">
-          New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection!
+      <div class="section-header">
+        <h2>News and Updates</h2>
+      </div>
+      <div class="news-slider">
+        <div class="news-track">
+          <article class="news-postcard">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection.</div>
+          </article>
+          <article class="news-postcard">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">Paper “Estimation and Inference for Causal Explainability” accepted by CLeaR 2026.</div>
+          </article>
+          <article class="news-postcard">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">New medRxiv preprint on background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders.</div>
+          </article>
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection.</div>
+          </article>
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">Paper “Estimation and Inference for Causal Explainability” accepted by CLeaR 2026.</div>
+          </article>
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">March 2026</div>
+            <div class="news-text">New medRxiv preprint on background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders.</div>
+          </article>
         </div>
-      </article>
-
-      <article class="news-postcard">
-        <div class="news-date">March 2026</div>
-        <div class="news-text">
-          Paper “Estimation and Inference for Causal Explainability” accepted by CLeaR 2026!
-        </div>
-      </article>
-
-      <article class="news-postcard">
-        <div class="news-date">March 2026</div>
-        <div class="news-text">
-          New medRxiv preprint “Background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders”!
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
     <section id="contact" class="card contact">
       <div>
         <div class="section-header" style="margin-bottom: 8px;">
           <h2>Contact</h2>
         </div>
-        <p>
-          <li><strong>Email:</strong> <a href="mailto:zijungao@marshall.usc.edu">zijungao@marshall.usc.edu</a></li>
-        </p>
-        <p>
-          <li><strong>Address:</strong> 3670 Trousdale Pkwy, Suite 307F, Los Angeles, CA 90089</li>
-        </p>
+        <p><strong>Email:</strong> <a href="mailto:zijungao@marshall.usc.edu">zijungao@marshall.usc.edu</a></p>
+        <p><strong>Address:</strong> 3670 Trousdale Pkwy, Suite 307F, Los Angeles, CA 90089</p>
       </div>
     </section>
 
-    <div class="footer container">
-      Last updated in March 2026.
-    </div>
+    <div class="footer container">Last updated in March 2026.</div>
   </main>
-</body>
+
+  </body>
 </html>
