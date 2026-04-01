@@ -324,6 +324,55 @@
       font-size: 0.9em;
     }
 
+    .news-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.news-track {
+  display: flex;
+  transition: transform 0.75s ease;
+  will-change: transform;
+}
+
+.news-postcard {
+  min-width: 100%;
+  background: linear-gradient(180deg, #fffdf8 0%, #f8f1e8 100%);
+  border: 1.5px solid #e6d7c3;
+  border-radius: 26px;
+  padding: 28px 34px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
+  position: relative;
+}
+
+.news-postcard::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 56px;
+  height: 36px;
+  border: 1.5px solid #d7c4df;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #efeaf7 0%, #f9f2d9 100%);
+}
+
+.news-date {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #8b6f9b;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.news-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1f2937;
+  max-width: 92%;
+}
+
     @media (max-width: 900px) {
       .hero-grid,
       .two-col,
@@ -438,17 +487,37 @@
         </div>
       </div>
     </section>
-    
+
     <section id="news">
-      <div class="section-header">
-        <h2>News and Updates</h2>
-      </div>
-      <div class="news-grid">
-        <article class="news-item">March 2026: New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection!</article>
-        <article class="news-item">March 2026: Paper "Estimation and Inference for Causal Explainability" accepted by CLeaR 2026!</article>
-        <article class="news-item">March 2026: New medrxiv preprint "Background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders"!</article>
-      </div>
-    </section>
+  <div class="section-header">
+    <h2>News and Updates</h2>
+  </div>
+
+  <div class="news-slider" id="news-slider">
+    <div class="news-track" id="news-track">
+      <article class="news-postcard">
+        <div class="news-date">March 2026</div>
+        <div class="news-text">
+          New arXiv preprint on min-Storey estimators for multiple testing and conformal novelty detection!
+        </div>
+      </article>
+
+      <article class="news-postcard">
+        <div class="news-date">March 2026</div>
+        <div class="news-text">
+          Paper “Estimation and Inference for Causal Explainability” accepted by CLeaR 2026!
+        </div>
+      </article>
+
+      <article class="news-postcard">
+        <div class="news-date">March 2026</div>
+        <div class="news-text">
+          New medRxiv preprint “Background covariance adjustment distills shared genetic architecture across neurodevelopmental and neurodegenerative disorders”!
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
     <section id="contact" class="card contact">
       <div>
