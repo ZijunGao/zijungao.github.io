@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K451WSXZW3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K451WSXZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K451WSXZW3');
+  </script>
 
-  gtag('config', 'G-K451WSXZW3');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zijun (Zizi) Gao</title>
   <meta name="description" content="Zijun (Zizi) Gao — Assistant Professor at USC Marshall working on causal inference, adaptive experiment, and multiple testing." />
+
   <style>
     :root {
       --bg: #faf9f7;
@@ -30,10 +31,13 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #fcfbf8 0%, #f7f5f2 100%);
       line-height: 1.65;
@@ -162,7 +166,7 @@
     }
 
     .button.secondary {
-      background: rgba(255,255,255,0.55);
+      background: rgba(255, 255, 255, 0.55);
       color: var(--text);
       border-color: var(--line);
     }
@@ -314,94 +318,99 @@
       font-size: 0.95rem;
     }
 
-    .news-slider {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding-top: 22px;
+   .news-slider {
+      padding: 24px 8px 34px;
     }
-
+    
     .news-slider::before {
-      content: "";
-      position: absolute;
-      top: 18px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(160, 132, 176, 0.35) 0%, rgba(210, 184, 151, 0.45) 100%);
-      z-index: 0;
+      display: none;
     }
-
+    
     .news-track {
-      display: flex;
-      gap: 20px;
-      width: max-content;
-      animation: news-marquee 26s linear infinite;
-      will-change: transform;
-      position: relative;
-      z-index: 1;
+      align-items: stretch;
     }
-
-    .news-slider:hover .news-track {
-      animation-play-state: paused;
-    }
-
+    
     .news-postcard {
-      position: relative;
-      width: 360px;
-      flex: 0 0 auto;
-      background: linear-gradient(180deg, #fffdf8 0%, #f8f1e8 100%);
-      border: 1.5px solid #e6d7c3;
-      border-radius: 22px;
-      padding: 28px 26px 24px;
-      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
-      transform: rotate(-1deg);
+      width: min(300px, calc(100vw - 64px));
+      min-height: 450px;
+      aspect-ratio: 2 / 3;
+      padding: 112px 24px 100px;
+      border: 1px solid #e1dfd9;
+      border-radius: 2px;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0 21px,
+          #d6d3cc 21px 22px
+        ) right 24px bottom 24px / 58% 88px no-repeat,
+        linear-gradient(135deg, #ffffff, #fcfbf8);
+      box-shadow:
+        0 2px 3px rgba(55, 49, 40, 0.09),
+        0 12px 24px rgba(55, 49, 40, 0.07);
+      transform: rotate(-0.6deg);
     }
-
+    
     .news-postcard:nth-child(2n) {
-      transform: rotate(1deg);
+      transform: rotate(0.6deg);
     }
-
+    
+    /* Six small postal-code boxes. */
     .news-postcard::before {
       content: "";
-      position: absolute;
-      top: -18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 26px;
-      height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(180deg, #f3eee6 0%, #ddd1bf 100%);
-      border: 1px solid rgba(120, 108, 96, 0.25);
-      box-shadow: 0 2px 6px rgba(17, 24, 39, 0.12);
+      top: 30px;
+      left: 24px;
+      width: 132px;
+      height: 18px;
+      transform: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='18'%3E%3Crect x='.5' y='.5' width='16' height='17' fill='none' stroke='%23b4b2ac'/%3E%3C/svg%3E") left top / 22px 18px repeat-x;
     }
-
+    
+    /* Postage-stamp outline. */
     .news-postcard::after {
       content: "";
-      position: absolute;
-      top: -7px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(120, 108, 96, 0.55);
+      top: 28px;
+      right: 24px;
+      left: auto;
+      width: 48px;
+      height: 62px;
+      transform: none;
+      border: 1px dashed #aaa79f;
+      border-radius: 0;
+      outline: 1px solid #e2dfd8;
+      outline-offset: -5px;
       background: transparent;
+      box-shadow: none;
     }
-
+    
     .news-date {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #8b6f9b;
-      margin-bottom: 10px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: #847c72;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+    }
+    
+    .news-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #353733;
+      overflow-wrap: break-word;
+    }
+    
+    .news-text a {
+      text-decoration-color: #c2bcb1;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
     }
 
-    .news-text {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #1f2937;
+    @media (prefers-reduced-motion: reduce) {
+      .news-slider { overflow-x: auto; }
+      .news-track { animation: none; }
+      .news-postcard[aria-hidden="true"] { display: none; }
     }
 
     @keyframes news-marquee {
@@ -440,6 +449,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="nav">
     <div class="container nav-inner">
@@ -463,12 +473,16 @@
           <h1>Zijun (Zizi) Gao</h1>
           <p>Welcome to Zijun's website :)</p>
           <p>
-            I am an Assistant Professor in the Department of Data Sciences and Operations at the USC Marshall School of Business.
-            Before joining USC, I earned my B.S. in Mathematics from Tsinghua University, my Ph.D. in Statistics from Stanford University in 2022 advised by Professor Trevor Hastie,
-            and worked as a Research Associate in the Statistical Lab at the University of Cambridge from 2022 to 2023.
+            I am an Assistant Professor in the Department of Data Sciences and
+            Operations at the USC Marshall School of Business.
+            Before joining USC, I earned my B.S. in Mathematics from Tsinghua
+            University, my Ph.D. in Statistics from Stanford University in 2022
+            advised by Professor Trevor Hastie, and worked as a Research Associate
+            in the Statistical Lab at the University of Cambridge from 2022 to 2023.
           </p>
           <p>
-            My research focuses on <strong>causal inference</strong>, particularly <strong>heterogeneous treatment effects</strong>.
+            My research focuses on <strong>causal inference</strong>, particularly
+            <strong>heterogeneous treatment effects</strong>.
           </p>
           <div class="button-row">
             <a class="button" href="assets/CVZijunGao.pdf">CV</a>
@@ -481,14 +495,19 @@
 
         <aside class="card hero-side">
           <div class="portrait">
-            <img id="main-photo" src="assets/images/photo1.jpg" alt="Photo" style="width:280px; border-radius:20px;">
+            <img
+              id="main-photo"
+              src="assets/images/photo1.jpg"
+              alt="Photo"
+              style="width:280px; border-radius:20px;"
+            >
             <script>
               const photos = [
                 "assets/img/outdoor.png",
                 "assets/img/Zijun's headshot himo crop.png",
                 "assets/img/IMG_4455.jpeg"
               ];
-          
+
               let i = 0;
               setInterval(() => {
                 i = (i + 1) % photos.length;
@@ -507,21 +526,44 @@
       <div class="two-col">
         <div class="card panel">
           <p>
-            My research develops trustworthy and efficient statistical methods for causal inference in modern data settings, with a particular focus on <strong>heterogeneous treatment effects</strong>.
-            When treatment effects vary across individuals, natural questions arise on <strong>adaptive trials</strong>, <strong>benefiting subgroups</strong>, and <strong>personalized treatments</strong>.
-            These tasks further raise <strong>selective inference</strong> and <strong>multiple testing</strong> challenges due to the adaptivity of experiments and the multiplicity of subgroups.
+            My research develops trustworthy and efficient statistical methods
+            for causal inference in modern data settings, with a particular focus
+            on <strong>heterogeneous treatment effects</strong>.
+            When treatment effects vary across individuals, natural questions
+            arise on <strong>adaptive trials</strong>,
+            <strong>benefiting subgroups</strong>, and
+            <strong>personalized treatments</strong>.
+            These tasks further raise <strong>selective inference</strong> and
+            <strong>multiple testing</strong> challenges due to the adaptivity of
+            experiments and the multiplicity of subgroups.
           </p>
           <p>
-            I am also genuinely interested in the <strong>interplay between machine learning and causal inference</strong>:
-            modern machine learning methods, such as neural networks and <strong>ML-assisted optimal transport</strong>, can help address causal problems with complex data;
-            in turn, causal inference can contribute to <strong>model evaluation</strong> and to <strong>explainability</strong> of black-box algorithms.
+            I am also genuinely interested in the
+            <strong>interplay between machine learning and causal inference</strong>:
+            modern machine learning methods, such as neural networks and
+            <strong>ML-assisted optimal transport</strong>, can help address
+            causal problems with complex data; in turn, causal inference can
+            contribute to <strong>model evaluation</strong> and to
+            <strong>explainability</strong> of black-box algorithms.
           </p>
         </div>
         <div>
           <ul class="list">
-            <li><strong>Heterogeneous treatment effects</strong>: Estimation and inference for heterogeneous treatment effects, identification of benefiting subgroups.</li>
-            <li><strong>Randomization inference</strong>: Randomization tests in adaptive trials with selection, for multiple subgroup hypotheses, with augmentation using model knowledge.</li>
-            <li><strong>Partial identification</strong>: Partial identification using optimal transport handling covariates, complex outcomes, multiple treatment levels.</li>
+            <li>
+              <strong>Heterogeneous treatment effects</strong>:
+              Estimation and inference for heterogeneous treatment effects,
+              identification of benefiting subgroups.
+            </li>
+            <li>
+              <strong>Randomization inference</strong>:
+              Randomization tests in adaptive trials with selection, for multiple
+              subgroup hypotheses, with augmentation using model knowledge.
+            </li>
+            <li>
+              <strong>Partial identification</strong>:
+              Partial identification using optimal transport handling covariates,
+              complex outcomes, multiple treatment levels.
+            </li>
           </ul>
         </div>
       </div>
@@ -531,32 +573,106 @@
       <div class="section-header">
         <h2>News and Updates</h2>
       </div>
+
       <div class="news-slider">
         <div class="news-track">
-          <article class="news-postcard" aria-hidden="true">
-            <div class="news-date">May 2026</div>
-            <div class="news-text">Selected as a Gold Reviewer for ICML 2026!</div>
+
+          <article class="news-postcard">
+            <div class="news-date">August 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a href="https://arxiv.org/abs/2608.30221" target="_blank" rel="noopener noreferrer">Cubic-Root Gaussian Approximation under Unrestricted Covariance</a>.
+            </div>
           </article>
+
+          <article class="news-postcard">
+            <div class="news-date">August 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a href="https://arxiv.org/abs/2608.19749" target="_blank" rel="noopener noreferrer">Causal Survival Forests with Negative Controls</a>.
+            </div>
+          </article>
+
+          <article class="news-postcard">
+            <div class="news-date">July 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a href="https://arxiv.org/abs/2607.18545" target="_blank" rel="noopener noreferrer">Flexible Inference for Winners with Conditional Validity</a>.
+            </div>
+          </article>
+
           <article class="news-postcard">
             <div class="news-date">May 2026</div>
-            <div class="news-text">New arXiv preprint "Simultaneous False Discovery Rate Control in Location Families"!</div>
+            <div class="news-text">
+              Selected as a Gold Reviewer for ICML 2026!
+            </div>
           </article>
+
+          <article class="news-postcard">
+            <div class="news-date">May 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a href="https://arxiv.org/abs/2605.09525" target="_blank" rel="noopener noreferrer">Simultaneous False Discovery Rate Control in Location Families</a>.
+            </div>
+          </article>
+
           <article class="news-postcard">
             <div class="news-date">April 2026</div>
-            <div class="news-text">Paper``Partial Identification under High-Dimensional Potential Outcomes and Confounders via Optimal Transport'' is accepted by ICML 2026!</div>
+            <div class="news-text">
+              <a href="https://arxiv.org/abs/2606.00847" target="_blank" rel="noopener noreferrer">Partial Identification under High-Dimensional Potential Outcomes and Confounders via Optimal Transport</a>
+              accepted at ICML 2026!
+            </div>
           </article>
+
+          <!-- Visual copies keep the carousel loop seamless. -->
+
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">August 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a tabindex="-1" href="https://arxiv.org/abs/2608.30221" target="_blank" rel="noopener noreferrer">Cubic-Root Gaussian Approximation under Unrestricted Covariance</a>.
+            </div>
+          </article>
+
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">August 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a tabindex="-1" href="https://arxiv.org/abs/2608.19749" target="_blank" rel="noopener noreferrer">Causal Survival Forests with Negative Controls</a>.
+            </div>
+          </article>
+
+          <article class="news-postcard" aria-hidden="true">
+            <div class="news-date">July 2026</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a tabindex="-1" href="https://arxiv.org/abs/2607.18545" target="_blank" rel="noopener noreferrer">Flexible Inference for Winners with Conditional Validity</a>.
+            </div>
+          </article>
+
           <article class="news-postcard" aria-hidden="true">
             <div class="news-date">May 2026</div>
-            <div class="news-text">Selected as a Gold Reviewer for ICML 2026!</div>
+            <div class="news-text">
+              Selected as a Gold Reviewer for ICML 2026!
+            </div>
           </article>
-          <article class="news-postcard">
+
+          <article class="news-postcard" aria-hidden="true">
             <div class="news-date">May 2026</div>
-            <div class="news-text">New arXiv preprint "Simultaneous False Discovery Rate Control in Location Families"!</div>
+            <div class="news-text">
+              New arXiv preprint:
+              <a tabindex="-1" href="https://arxiv.org/abs/2605.09525" target="_blank" rel="noopener noreferrer">Simultaneous False Discovery Rate Control in Location Families</a>.
+            </div>
           </article>
-          <article class="news-postcard">
+
+          <article class="news-postcard" aria-hidden="true">
             <div class="news-date">April 2026</div>
-            <div class="news-text">Paper``Partial Identification under High-Dimensional Potential Outcomes and Confounders via Optimal Transport'' is accepted by ICML 2026!</div>
+            <div class="news-text">
+              <a tabindex="-1" href="https://arxiv.org/abs/2606.00847" target="_blank" rel="noopener noreferrer">Partial Identification under High-Dimensional Potential Outcomes and Confounders via Optimal Transport</a>
+              accepted at ICML 2026!
+            </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -566,13 +682,18 @@
         <div class="section-header" style="margin-bottom: 8px;">
           <h2>Contact</h2>
         </div>
-        <p><strong>Email:</strong> <a href="mailto:zijungao@marshall.usc.edu">zijungao@marshall.usc.edu</a></p>
-        <p><strong>Address:</strong> 3670 Trousdale Pkwy, Suite 307F, Los Angeles, CA 90089</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:zijungao@marshall.usc.edu">zijungao@marshall.usc.edu</a>
+        </p>
+        <p>
+          <strong>Address:</strong>
+          3670 Trousdale Pkwy, Suite 307F, Los Angeles, CA 90089
+        </p>
       </div>
     </section>
 
-    <div class="footer container">Last updated in March 2026.</div>
+    <div class="footer container">Last updated in September 2026.</div>
   </main>
-
-  </body>
+</body>
 </html>
